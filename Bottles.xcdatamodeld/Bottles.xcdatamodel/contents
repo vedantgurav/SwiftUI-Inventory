@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19D76" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+    <entity name="Bottle" representedClassName=".Bottle" syncable="YES">
+        <attribute name="capacity" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="desc" optional="YES" attributeType="String"/>
+        <attribute name="hidden" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="open" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Category" inverseName="bottle" inverseEntity="Category"/>
+        <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="bottle" inverseEntity="Location"/>
+    </entity>
+    <entity name="Category" representedClassName="Category" syncable="YES">
+        <attribute name="color" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="bottle" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Bottle" inverseName="category" inverseEntity="Bottle"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="name"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="Location" representedClassName="Location" syncable="YES">
+        <attribute name="color" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="bottle" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Bottle" inverseName="location" inverseEntity="Bottle"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="name"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="Settings" representedClassName="Settings" syncable="YES">
+        <attribute name="hiding" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="searching" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="separateGroup" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="showDesc" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+    </entity>
+    <elements>
+        <element name="Bottle" positionX="-54" positionY="-9" width="128" height="148"/>
+        <element name="Category" positionX="-54" positionY="27" width="128" height="88"/>
+        <element name="Location" positionX="-45" positionY="36" width="128" height="88"/>
+        <element name="Settings" positionX="-45" positionY="54" width="128" height="103"/>
+    </elements>
+</model>

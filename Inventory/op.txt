@@ -1,0 +1,98 @@
+Ballantine’s~0~750
+Glenlivet 12Y~0~750
+Aberlour Cask Strength~0~1000
+Absolut~0~1000
+Baudin Brandy~0~1000
+Blenders Pride Res~0~1000
+Chivas Regal Blend~0~1000
+Dalmore 15Y~0~1000
+Glenmarnoch Special Reserve~0~1000
+Glenmorangie Tayne~0~1000
+JW Blenders Batch 12Y~0~1000
+Ketel One Vodka~0~1000
+Makers Mark~0~1000
+Patron Tequila~0~1000
+Paul John Bold~0~1000
+Paul John Brilliance~0~1000
+Red Label~0~1000
+Singleton Glendullan~0~1000
+Something Special~0~1000
+Teachers Golden Thistle~0~1000
+William Lawson’s~0~1000
+Wine York Rose~0~1000
+Goa 100 Pipers 10Y~0~1000
+Chivas Regal~1~750
+Irish Baileys~1~750
+JW Platinum Label~1~750
+Royal Salute~1~750
+Goa JW Black Label~1~750
+Aberlour 12Y~1~1000
+Aberlour A’bunadh Cask~1~1000
+Aberfeldy~1~1000
+Armada Liquor~1~1000
+Auchentoshan Heartwood~1~1000
+Balvenie 12Y~1~1000
+Balvenie 16Y~1~1000
+Bowmore 10Y~1~1000
+Bowmore 15Y~1~1000
+Bunnahabhain~1~1000
+Chivas Regal India Edition~1~1000
+Dalwhinnie 15Y~1~1000
+Glenfiddich Select Cask~1~1000
+Glenfiddich 18Y~1~1000
+Glenfiddich 19Y~1~1000
+Glenkinchie 12Y~1~1000
+Glenlivet 18Y~1~1000
+Glenlivet Nadurra~1~1000
+Glenmorangie Duthac~1~1000
+Glenmorangie Signet~1~1000
+Grey Goose French Edition~1~1000
+Hendricks Gin~1~1000
+Hibiki Masters Select~1~1000
+Honey Bee~1~1000
+Jack Daniels~1~1000
+Jameson~1~1000
+Janus Brandy~1~1000
+JW Black Label Explorer Edn~1~1000
+JW Island Green~1~1000
+JW Gold Label Bullion~1~1000
+Laphroaig 10Y~1~1000
+Laphroaig 4 Oaks~1~1000
+MacAllan Select Oak~1~1000
+Macallan Whisky Makers Edn~1~1000
+Macallan Concept No. 1~1~1000
+Macallan Lumina~1~1000
+Macallan Quest~1~1000
+Malibu Liqueur~1~1000
+Martini Bianco~1~1000
+Paul John Edited~1~1000
+Stranger & Sons Gin~1~1000
+Tanqueray Gin~1~1000
+VAT 69 Black~1~1000
+Wine White Pinot Grigio~1~1000
+Wine White Pinot Gris 2019~1~1000
+Wine White Chardonnay Jacobs 2015~1~1000
+Wine Jacobs Creek Shiraz~1~1000
+Wine Red Merlot Chile 2017~1~1000
+Wine Red Shiraz Fratelli~1~1000
+Wine Sula Chenin Blanc~1~1000
+Wine York Cabernet Merlot~1~1000
+Yamazaki~1~1000
+JW Black Label~2~750
+Amrut Fusion~2~1000
+Cardhu~2~1000
+Chivas Regal~2~1000
+Chivas Regal Extra~2~1000
+Glenfiddich Reserve Cask~2~1000
+Glenfiddich 15Y~2~1000
+Hennessy Very Special~2~1000
+JW Blenders Batch 10Y~2~1000
+JW Gold Label~2~1000
+Lagavulin 16Y~2~1000
+Oban Little Bay~2~1000
+Talisker Dark Storm~2~1000
+Glenlivet 15Y~3~1000
+JW Black Label~3~1000
+JW Double Black~3~1000
+Glenlivet 12Y~4~1000
+Glenmorangie Original~4~1000
