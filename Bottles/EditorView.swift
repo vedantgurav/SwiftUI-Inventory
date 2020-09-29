@@ -196,7 +196,7 @@ struct EditorView: View {
                     StepperField(value: $multiple, range: 1...1000, step: 1, hint: "Add", unit: "Bottle", plural: true)
                 }
             }
-            .padding(.bottom, self.keyboard.currentHeight)
+//            .padding(.bottom, self.keyboard.currentHeight)
             .navigationBarTitle(Text("\( edit ? "Edit" : "Add" ) \(name)"))
             .navigationBarItems(leading:
                 Button(action: {

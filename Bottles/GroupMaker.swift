@@ -11,6 +11,11 @@ import SwiftUI
 struct GroupMaker: View {
     @Binding var groupName:String
     @Binding var groupColor:Color
+    
+    
+    
+    
+    
     var groupTitle:String
     var form = false
     
@@ -23,25 +28,35 @@ struct GroupMaker: View {
                 .autocapitalization(.words)
             Spacer()
         }
-        let colorField = VStack {
-            HStack() {
-                Text("Accent Color")
-                Spacer()
+        var colorField:some View {
+            VStack {
+                HStack() {
+                    Text("Accent Color")
+                    Spacer()
+                }
+                ColorPickerView(pickedColor: $groupColor)
+                    .frame(height: 10)
+                    .offset(x: 0, y: 0)
+                    .padding(.vertical, 15)
             }
-            ColorPickerView(pickedColor: $groupColor)
-                .frame(height: 10)
-                .offset(x: 0, y: 0)
-                .padding(.vertical, 15)
         }
         
         return Group {
+//            let pickedColor = Binding<Color>(get: {
+//                self.groupColor
+//            }, set: {
+//                self.groupColor = $0
+//            })
+            
             if self.form {
                 Form {
                     nameField
+//                    ColorPicker("Accent Color", selection: pickedColor)
                     colorField
                 }
             } else {
                 nameField
+//                ColorPicker("Accent Color", selection: pickedColor)
                 colorField
             }
         }

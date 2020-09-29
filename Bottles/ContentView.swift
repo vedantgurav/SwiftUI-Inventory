@@ -90,8 +90,8 @@ struct ContentView: View {
             settings.separateGroup = $0
             try? self.context.save()
         })
-
-        return TabView(selection: $currentTab) {
+        
+        var ListTabView: some View {
             NavigationView {
                 GroupListView (
                     showDesc: settings.showDesc,
@@ -103,25 +103,9 @@ struct ContentView: View {
                 .navigationBarTitle(Text("Bottles"))
             }
             .navigationViewStyle(StackNavigationViewStyle())
-            .tabItem {
-                VStack {
-                    Image(systemName: "list.bullet")
-                        .imageScale(.large)
-                    Text("List")
-                }
-            }
-            .tag(0)
-
-
-
-
-
-
-
-
-
-
-
+        }
+        
+        var LocationsTabView: some View {
             NavigationView {
                 Group {
                     if self.locations.count == 0 {
@@ -486,23 +470,9 @@ struct ContentView: View {
                     .navigationViewStyle(StackNavigationViewStyle())
                 }
             }
-            .tabItem {
-                VStack {
-                    Image(systemName: "archivebox.fill")
-                        .imageScale(.large)
-                    Text("Locations")
-                }
-            }
-            .tag(1)
-
-
-
-
-
-
-
-
-
+        }
+        
+        var CategoriesTabView: some View {
             NavigationView {
                 Group {
                     if self.categories.count == 0 {
@@ -722,6 +692,32 @@ struct ContentView: View {
                     .navigationViewStyle(StackNavigationViewStyle())
                 }
             }
+        }
+
+        return TabView(selection: $currentTab) {
+
+            
+            ListTabView
+                .tabItem {
+                VStack {
+                    Image(systemName: "list.bullet")
+                        .imageScale(.large)
+                    Text("List")
+                }
+            }
+            .tag(0)
+
+            LocationsTabView
+            .tabItem {
+                VStack {
+                    Image(systemName: "archivebox.fill")
+                        .imageScale(.large)
+                    Text("Locations")
+                }
+            }
+            .tag(1)
+
+            CategoriesTabView
             .tabItem {
                 VStack {
                     Image(systemName: "line.horizontal.3.decrease.circle.fill")
@@ -730,7 +726,6 @@ struct ContentView: View {
                 }
             }
             .tag(2)
-
 
             if settings.separateGroup {
                 NavigationView() {
