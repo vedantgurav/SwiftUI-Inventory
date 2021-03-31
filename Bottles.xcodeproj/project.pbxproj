@@ -551,6 +551,7 @@
 				DEVELOPMENT_TEAM = EM52C73H89;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Bottles/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -576,6 +577,7 @@
 				DEVELOPMENT_TEAM = EM52C73H89;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Bottles/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
