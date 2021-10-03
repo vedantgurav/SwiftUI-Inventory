@@ -230,21 +230,27 @@ struct GroupListView: View {
                                 }
                             }
                         }
-                        if settings.hiding {
-                            Button(action: {
-                                bottle.hidden.toggle()
-                            }) {
-                                if bottle.hidden {
-                                    Text("Unhide")
-                                    Image(systemName: "eye")
-                                        .imageScale(.small)
-                                } else {
-                                    Text("Hide")
-                                    Image(systemName: "eye.slash")
-                                        .imageScale(.small)
-                                }
-                            }
-                        }
+                        
+                        // Hiding button here
+                        
+                        HidingButtonView(bottle: bottle, hiding:settings.hiding)
+                        
+//                        if settings.hiding {
+//                            Button(action: {
+//                                bottle.hidden.toggle()
+//                            }) {
+//                                if bottle.hidden {
+//                                    Text("Unhide")
+//                                    Image(systemName: "eye")
+//                                        .imageScale(.small)
+//                                } else {
+//                                    Text("Hide")
+//                                    Image(systemName: "eye.slash")
+//                                        .imageScale(.small)
+//                                }
+//                            }
+//                        }
+                        
                         Button(action: {
                             let index = self.bottles.firstIndex(of: bottle)
                             self.deleteBottle(at: [index!])
@@ -255,7 +261,6 @@ struct GroupListView: View {
                         }
                     }
                 }
-//                .onDelete(perform: deleteBottle)
                 if filteredBottles.count>0 {
                     HStack {
                         Spacer()
@@ -467,5 +472,31 @@ struct GroupListView: View {
             bottle.hidden.toggle()
         }
         try? self.context.save()
+    }
+}
+
+
+struct HidingButtonView: View {
+    @State var bottle: Bottle
+    @State var hiding: Bool = false
+    
+    var body: some View {
+        Group {
+            if hiding {
+                Button(action: {
+                    bottle.hidden.toggle()
+                }) {
+                    if bottle.hidden {
+                        Text("Unhide")
+                        Image(systemName: "eye")
+                            .imageScale(.small)
+                    } else {
+                        Text("Hide")
+                        Image(systemName: "eye.slash")
+                            .imageScale(.small)
+                    }
+                }
+            }
+        }
     }
 }
