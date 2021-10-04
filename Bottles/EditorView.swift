@@ -19,7 +19,7 @@ struct EditorView: View {
     @State var selectedCategory: Int = 0
     @State var selectedOpen: Int = 0
     @State var capacity: Int = 750
-    @State var edit: Bool = false
+    @State var edit: Bool = true
     @State var selectedBottle: Int = 0
     var wishlist = false
     

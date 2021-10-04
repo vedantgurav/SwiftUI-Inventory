@@ -31,7 +31,7 @@ struct GroupListView: View {
     @State var capacity:Int = 750
     @State var selectedBottle:Int = 0
     
-    @State private var bottleAdd=false
+    @State private var bottleAdd=true
     @State private var bottleEdit=false
     
     @State private var showMoveShortcuts=true
@@ -77,12 +77,23 @@ struct GroupListView: View {
         
         var editorViewObject:some View {
             if self.filter {
-                if self.filterKey == 0 {
+                if self.filterKey == 5 {
+                    return EditorView(
+                        bottles: self.bottles,
+                        locations: self.locations,
+                        categories: self.categories,
+                        name: filteredBottles[0].wName,
+                        selectedCategory: self.categories.firstIndex(of: filteredBottles[0].category!)!,
+                        edit: false,
+                        keyboard: self.keyboard
+                    ).environment(\.managedObjectContext, self.context)
+                } else if self.filterKey == 0 {
                     return EditorView(
                         bottles: self.bottles,
                         locations: self.locations,
                         categories: self.categories,
                         selectedLocation: self.groupIndex,
+                        edit: false,
                         keyboard: self.keyboard
                     ).environment(\.managedObjectContext, self.context)
                 } else if self.filterKey == 1 {
@@ -91,6 +102,7 @@ struct GroupListView: View {
                         locations: self.locations,
                         categories: self.categories,
                         selectedCategory: self.groupIndex,
+                        edit: false,
                         keyboard: self.keyboard
                     ).environment(\.managedObjectContext, self.context)
                 } else {
@@ -99,6 +111,7 @@ struct GroupListView: View {
                         locations: self.locations,
                         categories: self.categories,
                         selectedOpen: self.filterKey - 2,
+                        edit: false,
                         keyboard: self.keyboard
                     ).environment(\.managedObjectContext, self.context)
                 }
@@ -107,43 +120,33 @@ struct GroupListView: View {
                 bottles: self.bottles,
                 locations: self.locations,
                 categories: self.categories,
+                edit: false,
                 keyboard: self.keyboard
             ).environment(\.managedObjectContext, self.context)
         }
         
-        var editorViewSheetHack:some View {
-            Group {
-                if self.bottleAdd {
-                   if self.filterKey == 5 {
-                    EditorView(
-                           bottles: self.bottles,
-                           locations: self.locations,
-                           categories: self.categories,
-                           name: filteredBottles[0].wName,
-                           selectedCategory: self.categories.firstIndex(of: filteredBottles[0].category!)!,
-                           keyboard: self.keyboard
-                       ).environment(\.managedObjectContext, self.context)
-                   } else {
-                        editorViewObject
-                   }
-                } else {
-                    EditorView(
-                       bottles: self.bottles,
-                       locations: self.locations,
-                       categories: self.categories,
-                       name: self.editName,
-                       desc: self.editDesc,
-                       selectedLocation: self.selectedLocation,
-                       selectedCategory: self.selectedCategory,
-                       selectedOpen: self.selectedOpen,
-                       capacity: self.capacity,
-                       edit: true,
-                       selectedBottle: self.selectedBottle,
-                       keyboard: self.keyboard
-                   ).environment(\.managedObjectContext, self.context)
-                }
-            }
-        }
+//        var editorViewSheetHack: some View {
+//            Group {
+//                if self.bottleAdd {
+//                    editorViewObject
+//                } else {
+//                    EditorView(
+//                       bottles: self.bottles,
+//                       locations: self.locations,
+//                       categories: self.categories,
+//                       name: self.editName,
+//                       desc: self.editDesc,
+//                       selectedLocation: self.selectedLocation,
+//                       selectedCategory: self.selectedCategory,
+//                       selectedOpen: self.selectedOpen,
+//                       capacity: self.capacity,
+//                       edit: true,
+//                       selectedBottle: self.selectedBottle,
+//                       keyboard: self.keyboard
+//                   ).environment(\.managedObjectContext, self.context)
+//                }
+//            }
+//        }
         
         var GroupListDivideHack:some View {
             List {
@@ -182,7 +185,7 @@ struct GroupListView: View {
                             self.selectedOpen = bottle.open ? 1 : 0
                             self.capacity = Int(bottle.capacity)
                             self.selectedBottle = self.bottles.firstIndex(of: bottle) ?? 0
-                            self.bottleEdit.toggle()
+                            self.bottleEdit = true
                         }) {
                             Text("Edit")
                             Image(systemName: "pencil")
@@ -438,9 +441,30 @@ struct GroupListView: View {
                     }
                 }
             }
-            .sheet(isPresented: self.$bottleEdit) {
+            .sheet(isPresented: $bottleEdit) {
                 Group {
-                    editorViewSheetHack
+                    if self.bottleAdd {
+                        editorViewObject
+                    } else {
+                        EditorView(
+                           bottles: self.bottles,
+                           locations: self.locations,
+                           categories: self.categories,
+                           name: self.editName,
+                           desc: self.editDesc,
+                           selectedLocation: self.selectedLocation,
+                           selectedCategory: self.selectedCategory,
+                           selectedOpen: self.selectedOpen,
+                           capacity: self.capacity,
+                           edit: self.bottleEdit,
+                           selectedBottle: self.selectedBottle,
+                           keyboard: self.keyboard
+                       ).environment(\.managedObjectContext, self.context)
+                    }
+                }
+                .onAppear {
+                    self.bottleAdd.toggle()
+                    self.bottleAdd.toggle()
                 }
             }
         )

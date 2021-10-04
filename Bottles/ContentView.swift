@@ -145,10 +145,10 @@ struct ContentView: View {
                                         )
                                         .contextMenu {
                                             Button(action: {
+                                                self.locationEdit = true
                                                 self.newName = location.wName
                                                 self.newLocationColor = Color(red:1, green:0, blue:0)
                                                 self.locationEditObject = location
-                                                self.locationEdit = true
                                                 self.locationAdd.toggle()
                                             }) {
                                                 Text("Edit")
@@ -433,7 +433,7 @@ struct ContentView: View {
                 .sheet(isPresented: $locationAdd) {
                     NavigationView {
                         GroupMaker(groupName: self.$newName, groupColor: self.$newLocationColor, groupTitle: "Location", form: true)
-                        .navigationBarTitle("Add \(self.newName)")
+                            .navigationBarTitle("\(locationEdit ? "Edit":"Add") \(self.newName)")
                         .navigationBarItems(leading:
                             Button(action: {
                                 self.dismissKeyboard()
@@ -512,11 +512,11 @@ struct ContentView: View {
                                         )
                                         .contextMenu {
                                             Button(action: {
+                                                self.categoryEdit = true
                                                 self.newName = category.wName
                                                 self.newCategoryColor = Color(red:1, green:0, blue:0)
                                                 self.categoryEditObject = category
                                                 self.categoryAdd.toggle()
-                                                self.categoryEdit = true
                                             }) {
                                                 Text("Edit")
                                                 Image(systemName: "pencil")
@@ -655,7 +655,7 @@ struct ContentView: View {
                 .sheet(isPresented: $categoryAdd) {
                     NavigationView {
                         GroupMaker(groupName: self.$newName, groupColor: self.$newCategoryColor, groupTitle: "Category", form: true)
-                        .navigationBarTitle("Add \(self.newName)")
+                            .navigationBarTitle("\(categoryEdit ? "Edit" : "Add") \(self.newName)")
                         .navigationBarItems(leading:
                             Button(action: {
                                 self.dismissKeyboard()
