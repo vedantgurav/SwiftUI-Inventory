@@ -1041,12 +1041,20 @@ struct ContentView: View {
                     newBottle.location = Location(context: self.context)
                     let newLocation = bottle["location"] as! [String:String]
                     newBottle.location?.name = newLocation["name"]!
-                    newBottle.location?.color = newLocation["color"]!
+                    if #available(iOS 14.0, *) {
+                        newBottle.location?.color = UIColor(hex: newLocation["color"]!)?.adjust(saturationBy: -0.3, brightnessBy: -0.2).toHex(alpha: true) ?? "#FFFFFFFF"
+                    } else {
+                        newBottle.location?.color = newLocation["color"]!
+                    }
 
                     newBottle.category = Category(context: self.context)
                     let newCategory = bottle["category"] as! [String:String]
                     newBottle.category?.name = newCategory["name"]!
-                    newBottle.category?.color = newCategory["color"]!
+                    if #available(iOS 14.0, *) {
+                        newBottle.category?.color = UIColor(hex: newCategory["color"]!)?.adjust(saturationBy: -0.3, brightnessBy: -0.2).toHex(alpha: true) ?? "#FFFFFFFF"
+                    } else {
+                        newBottle.category?.color = newLocation["color"]!
+                    }
                 }
                 try? self.context.save()
             }

@@ -130,6 +130,8 @@
 				0B94718A245960E50004CA7F /* KeyboardResponder.swift */,
 				0BD491F82453EF75004A3368 /* Settings+CoreDataClass.swift */,
 				0BD491F92453EF75004A3368 /* Settings+CoreDataProperties.swift */,
+				0B4D4D80242FE155009E572B /* Bottle+CoreDataClass.swift */,
+				0B4D4D81242FE155009E572B /* Bottle+CoreDataProperties.swift */,
 				0B4D4D74242FDC0C009E572B /* Category+CoreDataClass.swift */,
 				0B4D4D75242FDC0C009E572B /* Category+CoreDataProperties.swift */,
 				0B4D4D78242FDC0C009E572B /* Location+CoreDataClass.swift */,
@@ -156,8 +158,6 @@
 			isa = PBXGroup;
 			children = (
 				0B1E61452432765A00E6A0E8 /* Bottles.entitlements */,
-				0B4D4D80242FE155009E572B /* Bottle+CoreDataClass.swift */,
-				0B4D4D81242FE155009E572B /* Bottle+CoreDataProperties.swift */,
 				0B19EDA42415372E004A7CF9 /* AppDelegate.swift */,
 				0B19EDA62415372E004A7CF9 /* SceneDelegate.swift */,
 				0B19EDAB2415372E004A7CF9 /* ContentView.swift */,
